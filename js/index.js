@@ -57,7 +57,13 @@ navItems.forEach((element) => {
 document.getElementById('cta-img').setAttribute('src', siteContent['cta']['img-src']);
 document.getElementById('middle-img').setAttribute('src', siteContent['main-content']['middle-img-src']);
 
-document.querySelector('h1').textContent = siteContent['cta']['h1'];
+// let ctatitle = siteContent['cta']['h1'].split(' ')
+// ctatitle = ctatitle.join('<br>')
+// document.querySelector('h1').innerHTML = ctatitle
+// next line is another way to do that
+
+document.querySelector('h1').innerHTML = siteContent['cta']['h1'].split(' ').join("<br>")
+
 document.querySelector('button').textContent = siteContent ['cta']['button'];
 document.querySelector('footer p').textContent = siteContent['footer']['copyright'];
 
@@ -82,7 +88,11 @@ document.querySelector('.contact h4').textContent = siteContent['contact']['cont
 // document.querySelector('.contact p:nth-child(3)').textContent = siteContent['contact']['email'];
 
 let contactPs = document.querySelectorAll('.contact p')
-contactPs[0].textContent = siteContent ['contact']['address']
+let address1 = siteContent ['contact']['address'].split(" ")
+address1.splice(4,0,"<br>")
+address1 =  address1.join(" ")
+contactPs[0].innerHTML = address1
+
 contactPs[1].textContent = siteContent ['contact']['phone']
 contactPs[2].textContent = siteContent ['contact']['email']
 
